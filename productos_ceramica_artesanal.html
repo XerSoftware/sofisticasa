@@ -45,6 +45,7 @@
                     <!-- Menú que se colapsa -->
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
+                            <li class="nav-item me-4"><a class="nav-link" href="./index.html">Inicio</a></li>
                             <li class="nav-item dropdown me-4">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Productos
@@ -72,44 +73,6 @@
         
     <section class="container-fluid">
 
-        <section id="Novedades">
-            <div class="container">
-                <h1><hr>Novedades<hr></h1>
-                <div class="row g-4">
-                    <div class="col-md-4 d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="./imagenes/productos/ceramica/taza01.jpg" class="card-img-top" alt="...">
-                            <div class="card-body card_product">
-                                <h5 class="card-title">TAZA AZTECA</h5>
-                                <p class="card-text">Taza de la línea Azteca 300ml.</p>
-                                <a href="#" class="btn btn-secondary">Agregar al Carrito</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="./imagenes/productos/ceramica/taza02.jpg" class="card-img-top" alt="...">
-                            <div class="card-body card_product">
-                                <h5 class="card-title">TAZA OP ART</h5>
-                                <p class="card-text">Taza de la línea Op Art 300ml.</p>
-                                <a href="#" class="btn btn-secondary">Agregar al Carrito</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                            <img src="./imagenes/coleccion_exclusiva.jpg" class="card-img-top" alt="...">
-                            <div class="card-body card_product">
-                                <h5 class="card-title">JUEGO DE TAZAS</h5>
-                                <p class="card-text">Línea exclusiva Blue Terrain. Este juego cuenta con 6 Tazas de diseño único.</p>
-                                <a href="#" class="btn btn-secondary">Agregar al Carrito</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
         <section id="listado_productos">
             <div class="container">
                 <div class="row g-4" id="listado"></div>
@@ -122,7 +85,7 @@
             <ul id="lista-carrito"></ul>
             <p>Total: $<span id="total-carrito">0</span></p>
             <div class="btn btn-secondary" id="vaciar-carrito">Vaciar Carrito</div>
-            <div class="btn btn-secondary" href="./compra.html">Pagar</div>
+            <a href="./compra.html" class="btn btn-secondary">Pagar</a>
             <div class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#carrito">Ocultar</div>
         </div>
     </div>

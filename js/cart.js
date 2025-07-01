@@ -26,11 +26,25 @@ function agregarProducto(event) {
     let producto = {
         id: event.target.getAttribute('data-id'),
         nombre: event.target.getAttribute('data-nombre'),
-        precio: event.target.getAttribute('data-precio')
+        precio: event.target.getAttribute('data-precio'),
+        cantidad: 1
     };
 
     var carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];
-    carrito.push(producto);
+    let match = false;
+    for (let i = 0; i < carrito.length; i++) {
+        console.log("comparar" + carrito[i].id + " y " + producto.id );
+        if (carrito[i].id === producto.id) {
+            console.log("suma uno");
+            carrito[i].cantidad += 1;
+            carrito[i].precio = parseFloat(carrito[i].precio) + parseFloat(producto.precio);
+            match = true;
+        };
+    }
+    if (match == false) {
+        carrito.push(producto);    
+    };
+    
     sessionStorage.setItem('carrito', JSON.stringify(carrito));
     cargarCarrito();
 }
@@ -48,7 +62,7 @@ function cargarCarrito() {
     for (var i = 0; i < carrito.length; i++) {
         let producto = carrito[i];
         let li = document.createElement('li');
-        li.textContent = producto.nombre + ' - $' + producto.precio;
+        li.textContent = producto.nombre + ' - $' + producto.precio + ' Cant.' + producto.cantidad;
         listaCarrito.appendChild(li);
 
         // Sumar el precio al total (convertimos a número)

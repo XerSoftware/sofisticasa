@@ -23,7 +23,7 @@ function render(elementTarget, title, productList) {
                         <p class="card-text">${item.description}</p>
                         <h5 class="card-title">Precio $${item.price}</h5>
                         <a href="#" class="btn btn-secondary agregar-carrito" 
-                            data-id="${item.productId}"
+                            data-id="${item.Id}"
                             data-nombre="${item.titleOfProduct}"
                             data-precio="${item.price}">Agregar al Carrito</a>
                     </div>
