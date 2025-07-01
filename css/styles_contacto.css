@@ -1,0 +1,107 @@
+#contacto {
+	display: flex;
+    padding: 10px;
+	justify-content:space-around;
+    /* align-items: center; */
+    /* background-color:blue; */
+}
+
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    /* background-color: aquamarine; */
+    font-size: 1.3rem;
+    width: 80vh;
+}
+
+.zona {
+    grid-column: 2 / 3;
+}
+.email {
+    grid-column: 1 / 3;
+}
+.mensaje {
+    grid-column: 1 / 3;
+}
+.item {
+	/* display: flex; */
+    /* justify-content:flex-start; */
+    /* align-items: center; */
+    /* flex-direction: column; */
+    font-weight: bold;
+	padding: 10px;
+    /* width: 50%; */
+    /* height: 50%; */
+    /* background-color: rgb(136, 127, 255); */
+    /* width: 850px; */
+    /* flex-wrap: nowrap; */
+}
+.item *{
+    display: flex;
+    font-size: 1.3rem;
+    width: 100%;
+    border-radius: 5px;
+}
+.item label{
+    padding-bottom: 0.5rem;
+}
+
+#contacto-motivo {
+	flex: 1 1 auto;
+	
+}
+
+.boton {
+    /* Contenedor del botón */
+    align-content:end;
+    
+    /* padding: 20px; */
+    /* width: 20%; */
+    /* background-color: blue; */
+}
+
+.boton button {
+    justify-content: center;
+    justify-self: right;
+    width: 70%;
+}
+.mas_datos {
+    display: block;
+    /* background-color: bisque; */
+    margin-left: 20px;
+    padding: 50px 50px;
+    width: 50vh;
+    text-align: center;
+    border: 1px solid rgba(211, 211, 211, 0.384);
+	border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilos para pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+	#contacto {
+        /* background-color: black; */
+        flex-wrap: wrap;
+        padding: 10px;
+        /* justify-content: center; */
+        /* width: 50%; */
+    
+    }
+    form {
+        grid-template-columns: 1fr auto;
+    }
+    
+    .item {
+        grid-column: 1 / 2;
+        display: inline;
+        font-weight: bold;
+        padding: 10px;
+        margin: 10px;
+        /* background-color: blue; */
+        /* width: 90%; */
+    }
+
+    .boton button{
+        justify-self: center;
+    }
+}
