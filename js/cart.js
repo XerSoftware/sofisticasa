@@ -58,20 +58,20 @@ function cargarCarrito() {
 
     var carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];
     let total = 0;
-
+    let sumaProductos = 0;
     for (var i = 0; i < carrito.length; i++) {
         let producto = carrito[i];
         let li = document.createElement('li');
         li.textContent = producto.nombre + ' - $' + producto.precio + ' Cant.' + producto.cantidad;
         listaCarrito.appendChild(li);
+        sumaProductos += parseInt(producto.cantidad);
 
         // Sumar el precio al total (convertimos a número)
         total += parseFloat(producto.precio) || 0;
         sessionStorage.setItem('total', JSON.stringify(total));
     }
 
-    // Guarda el cantidad de productos
-    sumaProductos = carrito.length;
+    // Guarda la cantidad de productos
     sessionStorage.setItem('totalProductos', JSON.stringify(sumaProductos));
     totalProductos.textContent = sumaProductos;
 
