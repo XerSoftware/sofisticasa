@@ -97,6 +97,14 @@ document.getElementById("vaciar-carrito").addEventListener("click", function () 
 
 document.getElementById('actualizar-carrito').addEventListener('click', function() {
     cargarCarrito();
-    console.log("CargarCarrito OK")
+    console.log("CargarCarrito OK");
+    
+});
+
+document.getElementById('logon').addEventListener('click', function() {
+    console.log('Seteo usuario');
+    let usuario = prompt("Ingrese su nombre: ");
+    sessionStorage.setItem("usuario", JSON.stringify(usuario));
+    
     
 });

@@ -67,7 +67,12 @@
                 <div class="iconos_header">
                     <div class="iconos_item"><a href=""><i class="bi bi-search opt_icon"></i></a></div>
                     <div class="iconos_item"><a href=""><i class="bi bi-person opt_icon"></i></a></div>
-                    <div class="iconos_item"><a href="" data-bs-toggle="collapse" data-bs-target="#carrito"><i class="bi bi-cart opt_icon"></i></a><span class="badge bg-primary" id="total-productos"></span></div>
+                    <div class="iconos_item">
+                        <a href="" data-bs-toggle="collapse" data-bs-target="#carrito">
+                            <i class="bi bi-cart opt_icon"></i>
+                        </a><span class="badge bg-primary rounded-pill" id="total-productos"></span>
+                </div>
+
                 </div>
         </header>
         
@@ -80,7 +85,8 @@
         </section>
     </section>
     <div class="d-flex">
-        <div id="carrito" class="position-fixed top-0 end-0 p-3 bg-light collapse mt-3">
+        <!-- <div id="carrito" class="position-fixed top-0 end-0 p-3 bg-light collapse mt-3"> -->
+        <div id="carrito" class="collapse show top-0 end-0 position-fixed bg-light rounded" style="margin: 6rem; padding: 2rem;">
             <h2>Carrito de Compras</h2>
             <ul id="lista-carrito"></ul>
             <p>Total: $<span id="total-carrito">0</span></p>
