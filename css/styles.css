@@ -46,7 +46,7 @@ h1 {
  }
  
  .landing {
-     background-image: url("./imagenes/fondo_header5.png");
+     background-image: url("../imagenes/fondo_header5.png");
    /* background-size: 50% 100%; */
    background-position-y: center;
    background-size: 60% 110%;
@@ -62,7 +62,7 @@ h1 {
    width: 300px;
    /* background-color: blueviolet; */
    /* border: 2px solid blueviolet; */
-   background-image: url("./imagenes/logo.svg");
+   background-image: url("../imagenes/logo.svg");
    background-size:80%;
    background-repeat: no-repeat;
    background-position:top;
