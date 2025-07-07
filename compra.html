@@ -71,31 +71,48 @@
     </header>
     <main>
         <section class="d-flex justify-content-center">
-            <div id="detalle" class="bg-light p-3 rounded"></div>
+            <div id="detalle" class="container row bg-light p-3 rounded"></div>
         </section>
     </main>
 
-    <section class="d-flex justify-content-center">
-        <div class="align-items-center">
-    <form id="formulario" action="https://formspree.io/f/xovwyopp" method="POST">
-        <textarea id="carritoData" name="carrito" style="display:none;"></textarea>
-        <textarea id="totalCarrito" name="total" style="display:none;"></textarea>
-        <br>
-        <hr>
-        <label>Nombre completo</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
-        <label>Email:</label>
-        <input type="email" id="contactoEmail" name="email" placeholder="Correo electrónico" required>
-        <label>Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono">
-        <br><br>
-        <div class="d-flex justify-content-end">
-            <button type="submit" id="botonEnviar" class="btn btn-secondary">Confirmar Compra</button>
-        </div>
-        
-    </form>
+    <section class="container justify-content-center">
+  <form id="formulario" action="https://formspree.io/f/xovwyopp" method="POST" class="w-100 px-3">
+    
+    <!-- Datos ocultos -->
+    <textarea id="carritoData" name="carrito" style="display:none;"></textarea>
+    <textarea id="totalCarrito" name="total" style="display:none;"></textarea>
+    
+    <hr>
+
+    <!-- Fila de inputs -->
+    <div class="row mb-3">
+      <div class="col-md-4 mb-3">
+        <label for="nombre" class="form-label">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" class="form-control" required>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label for="contactoEmail" class="form-label">Email</label>
+        <input type="email" id="contactoEmail" name="email" placeholder="Correo electrónico" class="form-control" required>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" class="form-control">
+      </div>
     </div>
-    </section>
+
+    <!-- Botón -->
+    <div class="row">
+      <div class="col text-center">
+        <button type="submit" id="botonEnviar" class="btn btn-secondary">
+          Confirmar Compra
+        </button>
+      </div>
+    </div>
+
+  </form>
+</section>
     
     <footer class="footer">
         <section id="autor">Copyright Sergio Salcedo ®</section>
