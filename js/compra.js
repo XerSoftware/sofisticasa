@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="col-4 text-center m-0">${productoActual.cantidad}</div>
                     <div class="col-4 text-start"><button class="btn btn-secondary rounder-pill add-prod" data-id="${productoActual.id}" style="width:2rem">+</button></div>
                 </div>
-                <div class="col-3 text-end">Total $${parseFloat(productoActual.precio).toFixed(2)}</div>
+                <div class="col-3 text-end">Total $${parseFloat(productoActual.precio).toFixed(2) * productoActual.cantidad}</div>
                 </div>
                 `;
         }
