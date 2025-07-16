@@ -15,7 +15,7 @@ function render(elementTarget, title, productList) {
     // Recorro la lista de producto y agregue tarjeta del producto
     productList.forEach(item => {
         productos.innerHTML += `
-            <div class="col-md-4 d-flex justify-content-center">
+            <div class="col-md-4 d-flex justify-content-center pt-4">
                 <div class="card" style="width: 18rem;">
                     <img src=${item.imgSrc} class="card-img-top">
                     <div class="card-body card_product">
@@ -36,12 +36,15 @@ function render(elementTarget, title, productList) {
 };
 
 const listForAdd = [
-    {Id: 1, price: 100,  imgSrc: "./imagenes/productos/ceramica/taza01.jpg", titleOfProduct: "Taza Aztec", description: "Taza de la línea Aztec 300ml."},
-    {Id: 2, price: 150, imgSrc: "./imagenes/productos/ceramica/taza02.jpg", titleOfProduct: "Taza Optic",description: "Taza de la línea Optic 300ml."},
-    {Id: 3, price: 180, imgSrc: "./imagenes/productos/ceramica/taza03.jpg", titleOfProduct: "Taza Organic",description: "Taza de la línea Organic 300ml."},
+    {Id: 10, price: 50,  imgSrc: "./imagenes/productos/velas/velas01.png", titleOfProduct: "Vela Night", description: "Aromas suaves y envolventes para una noche de relax."},
+    {Id: 20, price: 75, imgSrc: "./imagenes/productos/velas/velas02.png", titleOfProduct: "Vela Salmón",description: "Diseño elegante y color cálido para ambientar cualquier espacio."},
+    {Id: 30, price: 90, imgSrc: "./imagenes/productos/velas/velas03.png", titleOfProduct: "Vela Rustica",description: "Textura artesanal y tonos tierra para un estilo natural y cálido."},
+    {Id: 50, price: 45,  imgSrc: "./imagenes/productos/velas/velas04.png", titleOfProduct: "Vela Canela", description: "Notas especiadas que evocan calidez y hogar."},
+    {Id: 60, price: 70, imgSrc: "./imagenes/productos/velas/velas05.png", titleOfProduct: "Vela Rosa",description: "Toque romántico con suaves tonos rosados y aroma floral."},
+    {Id: 70, price: 90, imgSrc: "./imagenes/productos/velas/velas06.png", titleOfProduct: "Vela Gota",description: "Diseño moderno en forma de gota, ideal para espacios minimalistas."},
     ];
 
-titleForAdd = "Productos nuevos"
+titleForAdd = "Velas Aromáticas"
 
 elementTarget = "listado"
 

@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
-    <title>Sofisticasa</title>
+    <title>Cerámica Artesanal</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/styles_contacto.css">
      <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -23,6 +22,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Borel&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header class="header small_header container-fluid">
@@ -57,7 +57,7 @@
                                     <li><a class="dropdown-item" href="#">Textiles de Cocina</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item me-4"><a class="nav-link" href="#">Contacto</a></li>
+                            <li class="nav-item me-4"><a class="nav-link" href="./contacto.html">Contacto</a></li>
                             <!-- <li class="nav-item me-4"><a class="nav-link" href="#">Ubicación</a></li> -->
                         </ul>
                     </div>
@@ -67,77 +67,41 @@
                 <div class="iconos_header">
                     <div class="iconos_item"><a href=""><i class="bi bi-search opt_icon"></i></a></div>
                     <div class="iconos_item"><a href=""><i class="bi bi-person opt_icon"></i></a></div>
-                    <div class="iconos_item"><a href=""><i class="bi bi-cart opt_icon"></i></a></div>
+                    <div class="iconos_item">
+                        <a href="" data-bs-toggle="collapse" data-bs-target="#carrito">
+                            <i class="bi bi-cart opt_icon"></i>
+                        </a><span class="badge bg-primary rounded-pill" id="total-productos"></span>
+                    </div>
+
                 </div>
         </header>
-        <hr>
+        
     <section class="container-fluid">
-       <section id="contacto">
-            <form action="https://formspree.io/f/xldjwzrl" method="post">
-                
-                <div class="item">
-                    <label>Nombre: </label>
-                    <input type="text">
-                </div>
-                <div class="item zona">
-                    <label>Zona donde resides: </label>
-                    <select name="zona">
-                        <option value="">Otra</option>
-                        <option value="zona_sur">Zona Norte Buenos Aires</option>
-                        <option value="caba">Ciudad de Buenos Aires</option>
-                        <option value="zona_norte">Zona Sur Buenos Aires</option>
-                    </select>
-                </div>
-                <div class="item email">
-                    <label>Tu Email: </label>
-                    <input type="email" name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required="True" placeholder="maria@gmail.com">
-                </div>
-                <div class="item mensaje">
-                <label>Mensaje: </label>
-                    <textarea class="text_area" cols="22" rows="20" name="mensaje"></textarea>
-                </div>
-                <div class="item">
-                <label id="contacto-motivo">Estoy interesado en: </label>
-                    <select name="interes">
-                        <option value="">Seleccione una opción</option>
-                        <option value="vajilla">Vajilla</option>
-                        <option value="velas">Velas</option>
-                        <option value="ceramicas">Cerámicas</option>
-                    </select>
-                </div>
-                <div class="item boton">
-                    <button type="submit">Enviar</button>
-                </div>
-            </form>
-            <div class="mas_datos">
-                <h3>SofistiCasa</h3>
-                <p>Av. Siempre Viva 4053</p>
-                <p>Localidad de Maschwitz</p>
-                <p>Tel. 1235-45645</p>
-                <br>
-                <h3>Ubicación</h3>
 
-                <div class="centrado">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13169.740922441582!2d-58.74586654367284!3d-34.39028192027535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc9f8d5a842409%3A0x2378e6e29238429!2sMercado%20de%20Maschwitz!5e0!3m2!1ses!2sar!4v1746678515113!5m2!1ses!2sar" 
-                            width="90%" 
-                            height="450" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
+        <section id="listado_productos">
+            <div class="container">
+                <div class="row g-4" id="listado"></div>
             </div>
-            
         </section>
-      
     </section>
+    <div class="d-flex">
+        <!-- <div id="carrito" class="position-fixed top-0 end-0 p-3 bg-light collapse mt-3"> -->
+        <div id="carrito" class="collapse top-0 end-0 position-fixed bg-light rounded" style="margin: 6rem; padding: 2rem;">
+            <h2>Carrito de Compras</h2>
+            <ul id="lista-carrito"></ul>
+            <p>Total: $<span id="total-carrito">0</span></p>
+            <div class="btn btn-secondary" id="vaciar-carrito">Vaciar Carrito</div>
+            <a href="./compra.html" class="btn btn-secondary">Pagar</a>
+            <div class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#carrito">Ocultar</div>
+        </div>
+    </div>
     <footer class="footer">
         <section id="autor">Copyright Sergio Salcedo ®</section>
         <ul class="social-icons">
             <li><a href="https://facebook.com"><i class="fa-brands fa-facebook"></i></a></li>
             <li><a href="https://x.com"><i class="fa-brands fa-twitter"></i></a></li>
             <li><a href="https://instagram.com"><i  class="fa-brands fa-instagram"></i></a></li>
+            
         </ul>
     </footer>
      </div>
@@ -146,5 +110,10 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- <script src="./js/main.js"></script> -->
+
+    <!-- Código para renderizar productos -->
+    <script src="./js/producto_render_velas.js"></script>
+    <!-- Código para manipular el carrito -->
+     <script src="./js/cart.js"></script>
 </body>
 </html>

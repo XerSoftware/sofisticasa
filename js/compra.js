@@ -30,19 +30,37 @@ document.addEventListener("DOMContentLoaded", function () {
         
         const products = JSON.parse(sessionStorage.getItem('carrito')) || [];
         for (let i = 0; i < products.length; i++) {
-            if (products[i].id == id) {
-                products[i].cantidad -= 1
-            }
-            
+                if (products[i].id == id && products[i].cantidad != 0) {
+                    products[i].cantidad -= 1
+                    sessionStorage.removeItem('carrito');
+                    sessionStorage.setItem('carrito', JSON.stringify(products));
+                    loadDetail();
+                }
         }
-        sessionStorage.removeItem('carrito');
-        sessionStorage.setItem('carrito', JSON.stringify(products));
-        loadDetail();
 
     }
     
+    function carritoTotal() {
+        var carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];
+        let total = 0;
+        let totalProductos = 0;
+        for (var i = 0; i < carrito.length; i++) {
+            let producto = carrito[i];
+            totalProductos += parseInt(producto.cantidad);
+
+            // Sumar el precio al total (convertimos a número)
+            total += parseFloat(producto.precio) * parseInt(producto.cantidad) || 0;
+        }
+
+        sessionStorage.setItem('total', JSON.stringify(total));
+
+        // Guarda la cantidad de productos
+        sessionStorage.setItem('totalProductos', JSON.stringify(totalProductos));
+    }
+
     function loadDetail() {
         const productos = JSON.parse(sessionStorage.getItem('carrito')) || [];
+        carritoTotal();
         const total = sessionStorage.getItem('total') || 0;
         const totalNumerico = parseFloat(total) || 0;
         const totalFormateado = totalNumerico.toFixed(2);
@@ -58,19 +76,19 @@ document.addEventListener("DOMContentLoaded", function () {
             resumenTextoHTML += `
                 <div class="row py-1">
                 <div class="col-5">
-                    ${productoActual.nombre}
+                    <h3>${productoActual.nombre}</h3>
                 </div>
                 <div class="col-4 row p-0 m-0">
                     <div class="col-4 text-end"><button class="btn btn-secondary rounder-pill rem-prod" data-id="${productoActual.id}" style="width:2rem">-</button></div>
-                    <div class="col-4 text-center m-0">${productoActual.cantidad}</div>
+                    <div class="col-4 text-center m-0"><h3>${productoActual.cantidad}</h3></div>
                     <div class="col-4 text-start"><button class="btn btn-secondary rounder-pill add-prod" data-id="${productoActual.id}" style="width:2rem">+</button></div>
                 </div>
-                <div class="col-3 text-end">Total $${parseFloat(productoActual.precio).toFixed(2) * productoActual.cantidad}</div>
+                <div class="col-3 text-end"><h3>Total $${parseFloat(productoActual.precio).toFixed(2) * productoActual.cantidad}</h3></div>
                 </div>
                 `;
         }
     
-    resumenTextoHTML += `<hr><h3 class="text-end">Total a pagar:    <strong>$${totalFormateado}</strong></h3>`;
+    resumenTextoHTML += `<hr><h2 class="text-end m-3">Total a pagar:    <strong>$${totalFormateado}</strong></h2>`;
     resumenDiv.innerHTML = resumenTextoHTML;
     
 

@@ -79,16 +79,15 @@ async function render_comments_carousel(elementTarget, commentLists, userLists) 
         itemUser = userLists[indicator];
         console.log(itemUser);
         carousel.innerHTML += `
-            <div class="carousel-item">
-                <div class="card" style="width: 18rem;">
+        <div class="carousel-item col-md-4">
+                <div class="card" style="width: 28rem;">
                     <img src="${itemUser.picture.large}" width="150px" class="card-img-top">
                     <div class="card-body card_product">
                         <h5 class="card-title">${item.user.fullName}</h5>
                         <p class="card-text">${item.body}</p>
                     </div>
                 </div>
-            </div>
-  
+        </div>
         `;
         //         <div class="carousel-item">    
         // <img src="./imagenes/productos/ceramica/taza01.jpg" alt="Los Angeles" class="d-block" style="width:100%">

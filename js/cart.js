@@ -27,7 +27,8 @@ function agregarProducto(event) {
         id: event.target.getAttribute('data-id'),
         nombre: event.target.getAttribute('data-nombre'),
         precio: event.target.getAttribute('data-precio'),
-        cantidad: 1
+        cantidad: 1,
+        //total: event.target.getAttribute('data-precio')
     };
 
     var carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];
@@ -37,7 +38,8 @@ function agregarProducto(event) {
         if (carrito[i].id === producto.id) {
             console.log("suma uno");
             carrito[i].cantidad += 1;
-            carrito[i].precio = parseFloat(carrito[i].precio) + parseFloat(producto.precio);
+            carrito[i].precio = parseFloat(carrito[i].precio);
+            //carrito[i].total = parseFloat(carrito[i].cantidad) * parseFloat(producto.precio);
             match = true;
         };
     }
@@ -57,24 +59,26 @@ function cargarCarrito() {
     totalCarrito.textContent = '0';
 
     var carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];
-    let total = 0;
+    let preciototal = 0;
     let sumaProductos = 0;
+    let total = 0;
     for (var i = 0; i < carrito.length; i++) {
         let producto = carrito[i];
+        preciototal = producto.cantidad * producto.precio
         let li = document.createElement('li');
-        li.textContent = producto.nombre + ' - $' + producto.precio + ' Cant.' + producto.cantidad;
+        li.textContent = producto.nombre + ' - $' + preciototal + '  (' + producto.cantidad + ') ';
         listaCarrito.appendChild(li);
         sumaProductos += parseInt(producto.cantidad);
 
         // Sumar el precio al total (convertimos a número)
-        total += parseFloat(producto.precio) || 0;
-        sessionStorage.setItem('total', JSON.stringify(total));
+        total += parseFloat(preciototal) || 0;
     }
 
     // Guarda la cantidad de productos
     sessionStorage.setItem('totalProductos', JSON.stringify(sumaProductos));
     totalProductos.textContent = sumaProductos;
 
+    sessionStorage.setItem('total', JSON.stringify(total));
     // Mostrar el total redondeado a 2 decimales
     totalCarrito.textContent = total.toFixed(2);
 }
