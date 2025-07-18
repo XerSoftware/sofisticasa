@@ -13,27 +13,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function addProd (event) {
         id = event.target.getAttribute('data-id');
-        const products = JSON.parse(sessionStorage.getItem('carrito')) || [];
+        const products = JSON.parse(localStorage.getItem('carrito')) || [];
         for (let i = 0; i < products.length; i++) {
             if (products[i].id == id) {
                 products[i].cantidad += 1
             }
             
         }
-        sessionStorage.removeItem('carrito');
-        sessionStorage.setItem('carrito', JSON.stringify(products));
+        localStorage.removeItem('carrito');
+        localStorage.setItem('carrito', JSON.stringify(products));
         loadDetail();
     }
     
     function remProd (event) {
         id = event.target.getAttribute('data-id');
         
-        const products = JSON.parse(sessionStorage.getItem('carrito')) || [];
+        const products = JSON.parse(localStorage.getItem('carrito')) || [];
         for (let i = 0; i < products.length; i++) {
                 if (products[i].id == id && products[i].cantidad != 0) {
                     products[i].cantidad -= 1
-                    sessionStorage.removeItem('carrito');
-                    sessionStorage.setItem('carrito', JSON.stringify(products));
+                    localStorage.removeItem('carrito');
+                    localStorage.setItem('carrito', JSON.stringify(products));
                     loadDetail();
                 }
         }
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     function carritoTotal() {
-        var carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];
+        var carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         let total = 0;
         let totalProductos = 0;
         for (var i = 0; i < carrito.length; i++) {
@@ -52,16 +52,16 @@ document.addEventListener("DOMContentLoaded", function () {
             total += parseFloat(producto.precio) * parseInt(producto.cantidad) || 0;
         }
 
-        sessionStorage.setItem('total', JSON.stringify(total));
+        localStorage.setItem('total', JSON.stringify(total));
 
         // Guarda la cantidad de productos
-        sessionStorage.setItem('totalProductos', JSON.stringify(totalProductos));
+        localStorage.setItem('totalProductos', JSON.stringify(totalProductos));
     }
 
     function loadDetail() {
-        const productos = JSON.parse(sessionStorage.getItem('carrito')) || [];
+        const productos = JSON.parse(localStorage.getItem('carrito')) || [];
         carritoTotal();
-        const total = sessionStorage.getItem('total') || 0;
+        const total = localStorage.getItem('total') || 0;
         const totalNumerico = parseFloat(total) || 0;
         const totalFormateado = totalNumerico.toFixed(2);
 
@@ -116,14 +116,21 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Por favor, completa todos los campos de contacto antes de enviar.");
             return; // Detenemos la función si falta algún campo.
         }
-
+        const productos = JSON.parse(localStorage.getItem('carrito')) || [];
         let detallesCarritoParaEnvio = '';
         for (let i = 0; i < productos.length; i++) {
             const productoActual = productos[i];
             detallesCarritoParaEnvio += `${productoActual.nombre} - $${parseFloat(productoActual.precio).toFixed(2)}\n`;
         }
-
+        
+        const total = localStorage.getItem('total') || 0;
+        const totalNumerico = parseFloat(total) || 0;
+        const totalFormateado = totalNumerico.toFixed(2);
         document.getElementById('carritoData').value = detallesCarritoParaEnvio;
         document.getElementById('totalCarrito').value = `$${totalFormateado}`;
         document.getElementById('formulario').submit();
+        
+        localStorage.removeItem('carrito');
+        loadDetail();
+
     }

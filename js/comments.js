@@ -80,7 +80,7 @@ async function render_comments_carousel(elementTarget, commentLists, userLists) 
         console.log(itemUser);
         carousel.innerHTML += `
         <div class="carousel-item col-md-4">
-                <div class="card" style="width: 28rem;">
+                <div class="card" style="width: 18rem;">
                     <img src="${itemUser.picture.large}" width="150px" class="card-img-top">
                     <div class="card-body card_product">
                         <h5 class="card-title">${item.user.fullName}</h5>

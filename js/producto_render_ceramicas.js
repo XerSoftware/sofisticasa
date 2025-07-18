@@ -17,7 +17,7 @@ function render(elementTarget, title, productList) {
         productos.innerHTML += `
             <div class="col-md-4 d-flex justify-content-center pt-4">
                 <div class="card" style="width: 18rem;">
-                    <img src=${item.imgSrc} class="card-img-top">
+                    <img src=${item.imgSrc} class="card-img-top" alt="${item.description}">
                     <div class="card-body card_product">
                         <h5 class="card-title">${item.titleOfProduct}</h5>
                         <p class="card-text">${item.description}</p>
