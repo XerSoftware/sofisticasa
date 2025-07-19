@@ -192,14 +192,28 @@
             <span class="carousel-control-next-icon"></span>
         </button> -->
     </div>
-    <div id="carrito" class="collapse top-0 end-0 position-fixed bg-light rounded" style="margin: 6rem; padding: 2rem;">
-        <h2>Carrito de Compras</h2>
-        <ul id="lista-carrito"></ul>
-        <p>Total: $<span id="total-carrito">0</span></p>
-        <div class="btn btn-secondary" id="vaciar-carrito">Vaciar Carrito</div>
-        <a href="./compra.html" class="btn btn-secondary">Pagar</a>
-        <div class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#carrito">Ocultar</div>
+    
+    <!-- Carrito Desplegable -->
+    <div class="d-flex" id="carrito_desplegable">
+        <div id="carrito" class="collapse top-0 end-0 position-fixed bg-light rounded" style="margin: 6rem; padding: 2rem;">
+            
+            <div class="row">
+                <h2 class="col-auto">Carrito de Compras</h2>
+                <div class="btn btn-secondary col-auto mb-1" data-bs-toggle="collapse" data-bs-target="#carrito">▲</div>
+            </div>
+                        
+            <ul id="lista-carrito"></ul>
+            <p>Total: $<span id="total-carrito">0</span></p>
+            <div class="row p-1">
+                <div class="btn btn-secondary col-md-auto m-1" id="vaciar-carrito">Vaciar Carrito</div>
+                <a href="./compra.html" class="btn btn-secondary col-md-auto m-1">Pagar</a>
+                
+            </div>
+            
+        </div>
     </div>
+
+    <!-- Footer -->
     <footer class="footer">
         <section id="autor">Copyright Sergio Salcedo ®</section>
         <ul class="social-icons">

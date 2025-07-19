@@ -79,12 +79,22 @@ function cargarCarrito() {
         let producto = carrito[i];
         preciototal = producto.cantidad * producto.precio
         let li = document.createElement('li');
-        li.textContent = producto.nombre + ' - $' + preciototal + '  (' + producto.cantidad + ') ';
+        //li.textContent = producto.nombre + ' - $' + preciototal + '  (' + producto.cantidad + ') ';
+        li.classList.add('row');
+        
+        // Descripción del producto
+        let desc = document.createElement('a');
+        desc.classList.add('col-10');
+        desc.textContent = producto.nombre + ' - $' + preciototal + '  (' + producto.cantidad + ') ';
+        
+        // Botón Eliminar
         let btn_eliminar = document.createElement('a');
-        btn_eliminar.classList.add('btn', 'btn-danger', 'p-0', 'eliminar');
+        btn_eliminar.classList.add('btn', 'btn-danger', 'p-1', 'mb-1', 'col-2', 'eliminar');
         btn_eliminar.dataset.id = producto.id;
         btn_eliminar.textContent = "X";
         btn_eliminar.addEventListener('click', quitarProducto);
+        
+        li.appendChild(desc);
         li.appendChild(btn_eliminar);
         listaCarrito.appendChild(li);
         sumaProductos += parseInt(producto.cantidad);

@@ -38,6 +38,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
         }
 
+    // TODO: Cuando el contador llega a cero, eliminar el producto
+    }
+
+    
+
+    function quitarProducto(event) {
+    let producto_a_eliminar = {
+        id: event.target.getAttribute('data-id'),
+    };
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    carrito = carrito.filter(producto => producto.id !== producto_a_eliminar.id);
+    localStorage.setItem('carrito', JSON.stringify(carrito)); 
+    loadDetail();
     }
     
     function carritoTotal() {
@@ -83,7 +96,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="col-4 text-center m-0"><h3>${productoActual.cantidad}</h3></div>
                     <div class="col-4 text-start"><button class="btn btn-secondary rounder-pill add-prod" data-id="${productoActual.id}" style="width:2rem">+</button></div>
                 </div>
-                <div class="col-3 text-end"><h3>Total $${parseFloat(productoActual.precio).toFixed(2) * productoActual.cantidad}</h3></div>
+                <div class="col-2 text-end"><h3>Total $${parseFloat(productoActual.precio).toFixed(2) * productoActual.cantidad}</h3></div>
+                <div class="col-1"><button class="btn btn-danger rounder-pill remover" data-id="${productoActual.id}" style="width:2rem">X</button></div>
                 </div>
                 `;
         }
@@ -94,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const addProdButtons = document.getElementsByClassName('add-prod');
     const remProdButtons = document.getElementsByClassName('rem-prod');
+    const quitarProdButtons = document.getElementsByClassName('remover');
 
      for (var i = 0; i < addProdButtons.length; i++) {
         addProdButtons[i].addEventListener('click', addProd);
@@ -101,6 +116,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (var i = 0; i < remProdButtons.length; i++) {
         remProdButtons[i].addEventListener('click', remProd);
+    }
+
+     for (var i = 0; i < quitarProdButtons.length; i++) {
+        quitarProdButtons[i].addEventListener('click', quitarProducto);
     }
 
     }
